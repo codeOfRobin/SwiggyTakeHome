@@ -13,6 +13,9 @@
 		4242F3EA20B1E27D00199A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4242F3E920B1E27D00199A42 /* Assets.xcassets */; };
 		4242F3ED20B1E27D00199A42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4242F3EB20B1E27D00199A42 /* LaunchScreen.storyboard */; };
 		4242F3F820B1E27D00199A42 /* SwiggyTakeHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F3F720B1E27D00199A42 /* SwiggyTakeHomeTests.swift */; };
+		4242F40320B2A07900199A42 /* Variation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F40220B2A07900199A42 /* Variation.swift */; };
+		4242F40520B2AF6000199A42 /* VariantDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F40420B2AF6000199A42 /* VariantDecodingTests.swift */; };
+		4242F40720B2AF9800199A42 /* SampleJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F40620B2AF9800199A42 /* SampleJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		4242F3F320B1E27D00199A42 /* SwiggyTakeHomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiggyTakeHomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4242F3F720B1E27D00199A42 /* SwiggyTakeHomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiggyTakeHomeTests.swift; sourceTree = "<group>"; };
 		4242F3F920B1E27D00199A42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4242F40220B2A07900199A42 /* Variation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variation.swift; sourceTree = "<group>"; };
+		4242F40420B2AF6000199A42 /* VariantDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariantDecodingTests.swift; sourceTree = "<group>"; };
+		4242F40620B2AF9800199A42 /* SampleJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 			children = (
 				4242F3E220B1E27B00199A42 /* AppDelegate.swift */,
 				4242F3E420B1E27B00199A42 /* ViewController.swift */,
+				4242F40220B2A07900199A42 /* Variation.swift */,
 				4242F3E620B1E27B00199A42 /* Main.storyboard */,
 				4242F3E920B1E27D00199A42 /* Assets.xcassets */,
 				4242F3EB20B1E27D00199A42 /* LaunchScreen.storyboard */,
@@ -91,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				4242F3F720B1E27D00199A42 /* SwiggyTakeHomeTests.swift */,
+				4242F40420B2AF6000199A42 /* VariantDecodingTests.swift */,
+				4242F40620B2AF9800199A42 /* SampleJSON.swift */,
 				4242F3F920B1E27D00199A42 /* Info.plist */,
 			);
 			path = SwiggyTakeHomeTests;
@@ -198,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4242F3E520B1E27B00199A42 /* ViewController.swift in Sources */,
+				4242F40320B2A07900199A42 /* Variation.swift in Sources */,
 				4242F3E320B1E27B00199A42 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4242F40520B2AF6000199A42 /* VariantDecodingTests.swift in Sources */,
+				4242F40720B2AF9800199A42 /* SampleJSON.swift in Sources */,
 				4242F3F820B1E27D00199A42 /* SwiggyTakeHomeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
