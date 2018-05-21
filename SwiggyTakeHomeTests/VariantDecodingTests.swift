@@ -1,3 +1,4 @@
+
 //
 //  VariantDecodingTests.swift
 //  SwiggyTakeHomeTests
@@ -14,7 +15,6 @@ class VariantDecodingTests: XCTestCase {
     override func setUp() {
         super.setUp()
 		let jsonDecoder = JSONDecoder()
-		jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
 
 		guard let data = sampleJSONString.data(using: .utf8) else {
 			XCTFail("Data from string is nil")
@@ -22,6 +22,8 @@ class VariantDecodingTests: XCTestCase {
 		}
 
 		do {
+			let jsonObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+			print(jsonObject)
 			let response = try jsonDecoder.decode(APIResponse.self, from: data)
 //			XCTAssert(response.variants.count == 1)
 		} catch {
