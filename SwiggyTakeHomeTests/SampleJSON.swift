@@ -20,17 +20,25 @@ let sampleJSONString =
 {
 "name": "Thin",
 "price": 0,
-"id": "1"
+"default": 1,
+"id": "1",
+"inStock": 1
 },
 {
 "name": "Thick",
 "price": 0,
-"id": "2"
+"default": 0,
+"id": "2",
+"inStock": 1,
+"isVeg": 1
 },
 {
 "name": "Cheese burst",
 "price": 100,
-"id": "3"
+"default": 0,
+"id": "3",
+"inStock": 1,
+"isVeg": 1
 }
 ]
 },
@@ -41,17 +49,26 @@ let sampleJSONString =
 {
 "name": "Small",
 "price": 0,
+"default": 1,
 "id": "10",
+"inStock": 1,
+"isVeg": 0
 },
 {
 "name": "Medium",
 "price": 100,
-"id": "11"
+"default": 0,
+"id": "11",
+"inStock": 1,
+"isVeg": 1
 },
 {
 "name": ":Large",
 "price": 200,
-"id": "12"
+"default": 0,
+"id": "12",
+"inStock": 1,
+"isVeg": 0
 }
 ]
 },
@@ -62,17 +79,26 @@ let sampleJSONString =
 {
 "name": "Manchurian",
 "price": 20,
-"id": "20"
+"default": 0,
+"id": "20",
+"inStock": 1,
+"isVeg": 0
 },
 {
 "name": "Tomato",
 "price": 20,
-"id": "21"
+"default": 0,
+"id": "21",
+"inStock": 1,
+"isVeg": 1
 },
 {
 "name": "Mustard",
 "price": 20,
-"id": "22"
+"default": 0,
+"id": "22",
+"inStock": 1,
+"isVeg": 0
 }
 ]
 }

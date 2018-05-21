@@ -14,7 +14,6 @@ class VariantDecodingTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-		let jsonDecoder = JSONDecoder()
 
 		guard let data = sampleJSONString.data(using: .utf8) else {
 			XCTFail("Data from string is nil")
@@ -22,10 +21,18 @@ class VariantDecodingTests: XCTestCase {
 		}
 
 		do {
-			let jsonObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-			print(jsonObject)
+			let jsonDecoder = JSONDecoder()
 			let response = try jsonDecoder.decode(APIResponse.self, from: data)
-//			XCTAssert(response.variants.count == 1)
+
+			let variants = response.variants
+			let exclusions = variants.exclusions
+			let groups = variants.variantGroups
+			XCTAssert(exclusions.count == 2)
+			XCTAssert(exclusions[0].count == 2)
+			XCTAssert(exclusions[1].count == 2)
+			XCTAssert(groups.count == 3)
+			XCTAssert(groups[0].variations.count == 3)
+			XCTAssert(groups[0].variations[0].name == "Thin")
 		} catch {
 			print(error as! DecodingError)
 			XCTFail()
