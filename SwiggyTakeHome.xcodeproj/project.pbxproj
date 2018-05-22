@@ -19,6 +19,12 @@
 		4242F40F20B32F3D00199A42 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F40E20B32F3D00199A42 /* LoadingViewController.swift */; };
 		4242F41120B32F7800199A42 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F41020B32F7800199A42 /* ErrorViewController.swift */; };
 		4242F41320B332EC00199A42 /* UIViewController+Children.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F41220B332EC00199A42 /* UIViewController+Children.swift */; };
+		4242F41720B335EF00199A42 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F41620B335EF00199A42 /* AppCoordinator.swift */; };
+		4242F41920B3363900199A42 /* ModelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F41820B3363900199A42 /* ModelCoordinator.swift */; };
+		4242F41B20B3E83400199A42 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F41A20B3E83400199A42 /* APIClient.swift */; };
+		4242F41D20B3E91B00199A42 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F41C20B3E91B00199A42 /* Constants.swift */; };
+		4242F42120B4061E00199A42 /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F42020B4061E00199A42 /* APIClientTests.swift */; };
+		4242F42320B408BD00199A42 /* MockAPISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F42220B408BD00199A42 /* MockAPISession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +54,12 @@
 		4242F40E20B32F3D00199A42 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		4242F41020B32F7800199A42 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		4242F41220B332EC00199A42 /* UIViewController+Children.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Children.swift"; sourceTree = "<group>"; };
+		4242F41620B335EF00199A42 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		4242F41820B3363900199A42 /* ModelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCoordinator.swift; sourceTree = "<group>"; };
+		4242F41A20B3E83400199A42 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		4242F41C20B3E91B00199A42 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4242F42020B4061E00199A42 /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
+		4242F42220B408BD00199A42 /* MockAPISession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPISession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +101,10 @@
 		4242F3E120B1E27B00199A42 /* SwiggyTakeHome */ = {
 			isa = PBXGroup;
 			children = (
+				4242F41620B335EF00199A42 /* AppCoordinator.swift */,
+				4242F41C20B3E91B00199A42 /* Constants.swift */,
+				4242F41820B3363900199A42 /* ModelCoordinator.swift */,
+				4242F41A20B3E83400199A42 /* APIClient.swift */,
 				4242F3E220B1E27B00199A42 /* AppDelegate.swift */,
 				4242F3E420B1E27B00199A42 /* ViewController.swift */,
 				4242F41220B332EC00199A42 /* UIViewController+Children.swift */,
@@ -106,6 +122,8 @@
 		4242F3F620B1E27D00199A42 /* SwiggyTakeHomeTests */ = {
 			isa = PBXGroup;
 			children = (
+				4242F42020B4061E00199A42 /* APIClientTests.swift */,
+				4242F42220B408BD00199A42 /* MockAPISession.swift */,
 				4242F3F720B1E27D00199A42 /* SwiggyTakeHomeTests.swift */,
 				4242F40420B2AF6000199A42 /* VariantDecodingTests.swift */,
 				4242F40620B2AF9800199A42 /* SampleJSON.swift */,
@@ -220,7 +238,11 @@
 				4242F40320B2A07900199A42 /* Variation.swift in Sources */,
 				4242F41120B32F7800199A42 /* ErrorViewController.swift in Sources */,
 				4242F3E320B1E27B00199A42 /* AppDelegate.swift in Sources */,
+				4242F41D20B3E91B00199A42 /* Constants.swift in Sources */,
 				4242F40F20B32F3D00199A42 /* LoadingViewController.swift in Sources */,
+				4242F41920B3363900199A42 /* ModelCoordinator.swift in Sources */,
+				4242F41720B335EF00199A42 /* AppCoordinator.swift in Sources */,
+				4242F41B20B3E83400199A42 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,8 +251,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4242F40520B2AF6000199A42 /* VariantDecodingTests.swift in Sources */,
+				4242F42320B408BD00199A42 /* MockAPISession.swift in Sources */,
 				4242F40720B2AF9800199A42 /* SampleJSON.swift in Sources */,
 				4242F3F820B1E27D00199A42 /* SwiggyTakeHomeTests.swift in Sources */,
+				4242F42120B4061E00199A42 /* APIClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
