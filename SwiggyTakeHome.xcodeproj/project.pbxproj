@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4242F3E320B1E27B00199A42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F3E220B1E27B00199A42 /* AppDelegate.swift */; };
 		4242F3E520B1E27B00199A42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F3E420B1E27B00199A42 /* ViewController.swift */; };
-		4242F3E820B1E27B00199A42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4242F3E620B1E27B00199A42 /* Main.storyboard */; };
 		4242F3EA20B1E27D00199A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4242F3E920B1E27D00199A42 /* Assets.xcassets */; };
 		4242F3ED20B1E27D00199A42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4242F3EB20B1E27D00199A42 /* LaunchScreen.storyboard */; };
 		4242F3F820B1E27D00199A42 /* SwiggyTakeHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F3F720B1E27D00199A42 /* SwiggyTakeHomeTests.swift */; };
@@ -25,6 +24,9 @@
 		4242F41D20B3E91B00199A42 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F41C20B3E91B00199A42 /* Constants.swift */; };
 		4242F42120B4061E00199A42 /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F42020B4061E00199A42 /* APIClientTests.swift */; };
 		4242F42320B408BD00199A42 /* MockAPISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F42220B408BD00199A42 /* MockAPISession.swift */; };
+		4242F42720B4827B00199A42 /* SampleJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F40620B2AF9800199A42 /* SampleJSON.swift */; };
+		4242F42820B4828100199A42 /* MockAPISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F42220B408BD00199A42 /* MockAPISession.swift */; };
+		4246DADE20B5D800004E0F54 /* ExclusionLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246DADD20B5D800004E0F54 /* ExclusionLogicTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +43,6 @@
 		4242F3DF20B1E27A00199A42 /* SwiggyTakeHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiggyTakeHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4242F3E220B1E27B00199A42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4242F3E420B1E27B00199A42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4242F3E720B1E27B00199A42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4242F3E920B1E27D00199A42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4242F3EC20B1E27D00199A42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4242F3EE20B1E27D00199A42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 		4242F41C20B3E91B00199A42 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4242F42020B4061E00199A42 /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
 		4242F42220B408BD00199A42 /* MockAPISession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPISession.swift; sourceTree = "<group>"; };
+		4246DADD20B5D800004E0F54 /* ExclusionLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExclusionLogicTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +113,6 @@
 				4242F41020B32F7800199A42 /* ErrorViewController.swift */,
 				4242F40220B2A07900199A42 /* Variation.swift */,
 				4242F40E20B32F3D00199A42 /* LoadingViewController.swift */,
-				4242F3E620B1E27B00199A42 /* Main.storyboard */,
 				4242F3E920B1E27D00199A42 /* Assets.xcassets */,
 				4242F3EB20B1E27D00199A42 /* LaunchScreen.storyboard */,
 				4242F3EE20B1E27D00199A42 /* Info.plist */,
@@ -127,6 +128,7 @@
 				4242F3F720B1E27D00199A42 /* SwiggyTakeHomeTests.swift */,
 				4242F40420B2AF6000199A42 /* VariantDecodingTests.swift */,
 				4242F40620B2AF9800199A42 /* SampleJSON.swift */,
+				4246DADD20B5D800004E0F54 /* ExclusionLogicTests.swift */,
 				4242F3F920B1E27D00199A42 /* Info.plist */,
 			);
 			path = SwiggyTakeHomeTests;
@@ -215,7 +217,6 @@
 			files = (
 				4242F3ED20B1E27D00199A42 /* LaunchScreen.storyboard in Resources */,
 				4242F3EA20B1E27D00199A42 /* Assets.xcassets in Resources */,
-				4242F3E820B1E27B00199A42 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,9 +241,11 @@
 				4242F3E320B1E27B00199A42 /* AppDelegate.swift in Sources */,
 				4242F41D20B3E91B00199A42 /* Constants.swift in Sources */,
 				4242F40F20B32F3D00199A42 /* LoadingViewController.swift in Sources */,
+				4242F42820B4828100199A42 /* MockAPISession.swift in Sources */,
 				4242F41920B3363900199A42 /* ModelCoordinator.swift in Sources */,
 				4242F41720B335EF00199A42 /* AppCoordinator.swift in Sources */,
 				4242F41B20B3E83400199A42 /* APIClient.swift in Sources */,
+				4242F42720B4827B00199A42 /* SampleJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +256,7 @@
 				4242F40520B2AF6000199A42 /* VariantDecodingTests.swift in Sources */,
 				4242F42320B408BD00199A42 /* MockAPISession.swift in Sources */,
 				4242F40720B2AF9800199A42 /* SampleJSON.swift in Sources */,
+				4246DADE20B5D800004E0F54 /* ExclusionLogicTests.swift in Sources */,
 				4242F3F820B1E27D00199A42 /* SwiggyTakeHomeTests.swift in Sources */,
 				4242F42120B4061E00199A42 /* APIClientTests.swift in Sources */,
 			);
@@ -269,14 +273,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4242F3E620B1E27B00199A42 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4242F3E720B1E27B00199A42 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4242F3EB20B1E27D00199A42 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -18,5 +18,9 @@ enum Constants {
 			static let dataIsNil = NSLocalizedString("Data receieved in request was nil", comment: "")
 			static let clientSideError = NSLocalizedString("Whoops, looks like something failed on our end. We'll look into it 😅", comment: "")
 		}
+
+		enum ReuseIdentifiers {
+			static let variantCell = "VariantCell"
+		}
 	}
 }

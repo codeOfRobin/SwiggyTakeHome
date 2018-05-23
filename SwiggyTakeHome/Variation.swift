@@ -56,9 +56,14 @@ struct VariantGroup: Decodable {
 
 }
 
-struct Exclusion: Decodable {
+struct Exclusion: Decodable, Hashable {
 	let groupID: String
 	let variationID: String
+
+	init(groupID: String, variationID: String) {
+		self.groupID = groupID
+		self.variationID = variationID
+	}
 
 	enum CodingKeys: String, CodingKey {
 		case groupID = "group_id"
