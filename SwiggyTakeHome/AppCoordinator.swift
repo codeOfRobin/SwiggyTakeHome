@@ -16,42 +16,6 @@ import UIKit
 /// This is called a coordinator to avoid too much overloading of the word "Controller".
 
 
-// We're making this as general as possible
-func validExclusions(groupID: String, exclusionLists: [Set<Exclusion>], selectedIDs: [String], variantGroups: [VariantGroup]) -> [String: Set<Exclusion>] {
-
-	let selectedPairs = zip(selectedIDs, variantGroups).map{ Exclusion(groupID: $0.1.groupID, variationID: $0.0) }
-
-	let exclusionListsWeCareAbout = exclusionLists.filter{ !$0.intersection(selectedPairs).isEmpty }
-
-	let disabledElementsInVariantGroup = exclusionListsWeCareAbout.map { (set) -> ([String], Set<Exclusion>) in
-		let disabledElements = set.filter {
-			$0.groupID == groupID
-		}.map {
-			$0.variationID
-		}
-
-		let reasonsForDisabledElements =  set.filter { (exclusion) -> Bool in
-			selectedPairs.filter{ $0.groupID == exclusion.groupID }.count > 0
-		}
-		return (disabledElements, reasonsForDisabledElements)
-	}
-
-	let reasonDict: [String: Set<Exclusion>] = disabledElementsInVariantGroup.reduce([:]) { (dict, arg1) in
-		let (disabledIDs, reasons) = arg1
-		var copy = dict
-		for disabledID in disabledIDs {
-			if let set = copy[disabledID] {
-				copy[disabledID] = set.union(reasons)
-			} else {
-				copy[disabledID] = reasons
-			}
-		}
-		return copy
-	}
-
-	return reasonDict
-}
-
 class AppCoordinator: NSObject, ModelDelegate, VariantListCoordinatorDelegate, UINavigationControllerDelegate {
 
 	let model: ModelCoordinator
@@ -68,7 +32,9 @@ class AppCoordinator: NSObject, ModelDelegate, VariantListCoordinatorDelegate, U
 	var tempVC = UIViewController()
 	var listCoordinators: [VariantListCoordinator] = []
 	var selectedVariationIDs: [String] = []
-	var currentIndex = 0
+	var currentIndex: Int {
+		return listCoordinators.count - 1
+	}
 
 
 	init(window: UIWindow) {
@@ -105,34 +71,56 @@ class AppCoordinator: NSObject, ModelDelegate, VariantListCoordinatorDelegate, U
 	}
 
 	func presentNextVariantGroup() {
-		let nextListCoordinator = VariantListCoordinator(variantGroup: variantGroups[selectedVariationIDs.count], triggeredExclusionReasons: [:], rootViewController: rootViewController)
+		let triggeredExclusions = validExclusions(groupID: variantGroups[selectedVariationIDs.count].groupID, exclusionLists: exclusionGroups, selectedIDs: selectedVariationIDs, variantGroups: variantGroups)
+		let nextListCoordinator = VariantListCoordinator(variantGroup: variantGroups[selectedVariationIDs.count], triggeredExclusionReasons: triggeredExclusions, rootViewController: rootViewController)
 		listCoordinators.append(nextListCoordinator)
 		nextListCoordinator.delegate = self
 		nextListCoordinator.start()
 	}
 
-	func coordinator(_ coordinator: VariantListCoordinator, didTapItemAt indexPath: IndexPath) {
-		selectedVariationIDs.append(variantGroups[currentIndex].variations[indexPath.row].id)
-		presentNextVariantGroup()
+	func coordinator(_ coordinator: VariantListCoordinator, didTapVariation variation: Variation) {
+		let itemsThatTriggeredExclusions = validExclusions(groupID: variantGroups[currentIndex].groupID, exclusionLists: exclusionGroups, selectedIDs: selectedVariationIDs, variantGroups: variantGroups)
+		if let reasons = itemsThatTriggeredExclusions[variation.id] {
+			let problematicItems = itemNames(for: reasons, variantGroups: variantGroups)
+			coordinator.rootViewController.showErrorAlert(description: Constants.Strings.Errors.itemExclusionError(with: variation.name, items: problematicItems), onTappingOkayExecute: { })
+		} else {
+			selectedVariationIDs.append(variation.id)
+			if selectedVariationIDs.count == variantGroups.count {
+				//reusing the same function we use to get the names of problematic items
+				let selectedItems = Set(zip(selectedVariationIDs, variantGroups).map { Exclusion.init(groupID: $0.1.groupID, variationID: $0.0) })
+				let items = itemNames(for: selectedItems, variantGroups: variantGroups)
+				coordinator.rootViewController.showSuccessAlert(description: Constants.Strings.itemSelectionSuccess(with: items), onTappingOkayExecute: {
+					[weak self] in
+						self?.selectedVariationIDs.removeLast()
+				})
+			} else {
+				presentNextVariantGroup()
+			}
+		}
 	}
 
 	func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
 		//TODO: This still kinda feels like a hack. Must refactor
 		if let _ = rootViewController.topViewController as? VariantListViewController {
 			self.listCoordinators = Array(listCoordinators[0..<navigationController.viewControllers.count])
+			if self.listCoordinators.count == 1 {
+				self.selectedVariationIDs = []
+			} else {
+				self.selectedVariationIDs = Array(self.selectedVariationIDs[0..<(listCoordinators.count - 1)])
+			}
 		}
 	}
 
 }
 
 protocol VariantListCoordinatorDelegate: class {
-	func coordinator(_ coordinator: VariantListCoordinator, didTapItemAt indexPath: IndexPath)
+	func coordinator(_ coordinator: VariantListCoordinator, didTapVariation variation: Variation)
 }
 
 class VariantListCoordinator: VariantListViewControllerDelegate {
 
 	let variantGroup: VariantGroup
-	let triggeredExclusionReasons: [Int: [Variant]]
+	let triggeredExclusionReasons: [String: Set<Exclusion>]
 
 	let rootViewController: UINavigationController
 	weak var delegate: VariantListCoordinatorDelegate?
@@ -141,7 +129,7 @@ class VariantListCoordinator: VariantListViewControllerDelegate {
 		return VariantListViewController()
 	}()
 
-	init(variantGroup: VariantGroup, triggeredExclusionReasons: [Int: [Variant]], rootViewController: UINavigationController) {
+	init(variantGroup: VariantGroup, triggeredExclusionReasons: [String: Set<Exclusion>], rootViewController: UINavigationController) {
 		self.triggeredExclusionReasons = triggeredExclusionReasons
 		self.variantGroup = variantGroup
 		self.rootViewController = rootViewController
@@ -149,7 +137,11 @@ class VariantListCoordinator: VariantListViewControllerDelegate {
 	}
 
 	func start() {
-		listViewController.updateVariantGroup(variantGroup, triggeredExclusionReasons: [:])
+
+		//TODO: In README, do mention: wouldn't it be cool if the list showed you what you selected wrong? Like if you want a regular size, but you chose cheese burst by mistake initially, the UI should tell you what you did wrong
+		//TODO: This 👇
+		let disabledVariations = Set(triggeredExclusionReasons.keys)
+		listViewController.updateVariantGroup(variantGroup, andExclusions: disabledVariations)
 		if let _ = rootViewController.topViewController as? VariantListViewController {
 			rootViewController.pushViewController(listViewController, animated: true)
 		} else {
@@ -158,7 +150,7 @@ class VariantListCoordinator: VariantListViewControllerDelegate {
 	}
 
 	func controller(_ controller: VariantListViewController, didSelectVariationAt indexPath: IndexPath) {
-		delegate?.coordinator(self, didTapItemAt: indexPath)
+		delegate?.coordinator(self, didTapVariation: variantGroup.variations[indexPath.row])
 	}
 
 }
@@ -175,7 +167,11 @@ class VariantListViewController: UIViewController, UITableViewDataSource, UITabl
 			tableView.reloadData()
 		}
 	}
-	private var triggeredExclusionReasons: [Int: [Variant]] = [:]
+	private var excludedVariationIDs = Set<String>() {
+		didSet {
+			tableView.reloadData()
+		}
+	}
 
 	weak var delegate: VariantListViewControllerDelegate? = nil
 
@@ -214,6 +210,11 @@ class VariantListViewController: UIViewController, UITableViewDataSource, UITabl
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Strings.ReuseIdentifiers.variantCell, for: indexPath)
+		if excludedVariationIDs.contains(variations[indexPath.row].id) {
+			cell.textLabel?.alpha = 0.5
+		} else {
+			cell.textLabel?.alpha = 1.0
+		}
 		cell.textLabel?.text = variations[indexPath.row].name
 		return cell
 	}
@@ -223,9 +224,9 @@ class VariantListViewController: UIViewController, UITableViewDataSource, UITabl
 		self.delegate?.controller(self, didSelectVariationAt: indexPath)
 	}
 
-	func updateVariantGroup(_ variantGroup: VariantGroup, triggeredExclusionReasons: [Int: [Variant]]) {
+	func updateVariantGroup(_ variantGroup: VariantGroup, andExclusions excludedVariationIDs: Set<String>) {
 		self.title = variantGroup.name
-		self.triggeredExclusionReasons = triggeredExclusionReasons
+		self.excludedVariationIDs = excludedVariationIDs
 		self.variations = variantGroup.variations
 	}
 

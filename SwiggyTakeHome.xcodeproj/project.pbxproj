@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4242F3E320B1E27B00199A42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F3E220B1E27B00199A42 /* AppDelegate.swift */; };
-		4242F3E520B1E27B00199A42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F3E420B1E27B00199A42 /* ViewController.swift */; };
 		4242F3EA20B1E27D00199A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4242F3E920B1E27D00199A42 /* Assets.xcassets */; };
 		4242F3ED20B1E27D00199A42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4242F3EB20B1E27D00199A42 /* LaunchScreen.storyboard */; };
 		4242F3F820B1E27D00199A42 /* SwiggyTakeHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F3F720B1E27D00199A42 /* SwiggyTakeHomeTests.swift */; };
@@ -27,6 +26,8 @@
 		4242F42720B4827B00199A42 /* SampleJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F40620B2AF9800199A42 /* SampleJSON.swift */; };
 		4242F42820B4828100199A42 /* MockAPISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242F42220B408BD00199A42 /* MockAPISession.swift */; };
 		4246DADE20B5D800004E0F54 /* ExclusionLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246DADD20B5D800004E0F54 /* ExclusionLogicTests.swift */; };
+		4246DAE220B5E37B004E0F54 /* ValidExclusions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246DAE120B5E37B004E0F54 /* ValidExclusions.swift */; };
+		4246DAE420B5E96D004E0F54 /* UIViewController+ErrorAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246DAE320B5E96D004E0F54 /* UIViewController+ErrorAlerts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,6 @@
 /* Begin PBXFileReference section */
 		4242F3DF20B1E27A00199A42 /* SwiggyTakeHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiggyTakeHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4242F3E220B1E27B00199A42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4242F3E420B1E27B00199A42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4242F3E920B1E27D00199A42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4242F3EC20B1E27D00199A42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4242F3EE20B1E27D00199A42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +62,8 @@
 		4242F42020B4061E00199A42 /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
 		4242F42220B408BD00199A42 /* MockAPISession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPISession.swift; sourceTree = "<group>"; };
 		4246DADD20B5D800004E0F54 /* ExclusionLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExclusionLogicTests.swift; sourceTree = "<group>"; };
+		4246DAE120B5E37B004E0F54 /* ValidExclusions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidExclusions.swift; sourceTree = "<group>"; };
+		4246DAE320B5E96D004E0F54 /* UIViewController+ErrorAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorAlerts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +105,13 @@
 		4242F3E120B1E27B00199A42 /* SwiggyTakeHome */ = {
 			isa = PBXGroup;
 			children = (
+				4246DAE120B5E37B004E0F54 /* ValidExclusions.swift */,
+				4246DAE320B5E96D004E0F54 /* UIViewController+ErrorAlerts.swift */,
 				4242F41620B335EF00199A42 /* AppCoordinator.swift */,
 				4242F41C20B3E91B00199A42 /* Constants.swift */,
 				4242F41820B3363900199A42 /* ModelCoordinator.swift */,
 				4242F41A20B3E83400199A42 /* APIClient.swift */,
 				4242F3E220B1E27B00199A42 /* AppDelegate.swift */,
-				4242F3E420B1E27B00199A42 /* ViewController.swift */,
 				4242F41220B332EC00199A42 /* UIViewController+Children.swift */,
 				4242F41020B32F7800199A42 /* ErrorViewController.swift */,
 				4242F40220B2A07900199A42 /* Variation.swift */,
@@ -234,13 +237,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4242F3E520B1E27B00199A42 /* ViewController.swift in Sources */,
 				4242F41320B332EC00199A42 /* UIViewController+Children.swift in Sources */,
 				4242F40320B2A07900199A42 /* Variation.swift in Sources */,
 				4242F41120B32F7800199A42 /* ErrorViewController.swift in Sources */,
+				4246DAE420B5E96D004E0F54 /* UIViewController+ErrorAlerts.swift in Sources */,
 				4242F3E320B1E27B00199A42 /* AppDelegate.swift in Sources */,
 				4242F41D20B3E91B00199A42 /* Constants.swift in Sources */,
 				4242F40F20B32F3D00199A42 /* LoadingViewController.swift in Sources */,
+				4246DAE220B5E37B004E0F54 /* ValidExclusions.swift in Sources */,
 				4242F42820B4828100199A42 /* MockAPISession.swift in Sources */,
 				4242F41920B3363900199A42 /* ModelCoordinator.swift in Sources */,
 				4242F41720B335EF00199A42 /* AppCoordinator.swift in Sources */,

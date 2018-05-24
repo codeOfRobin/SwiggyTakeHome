@@ -34,6 +34,15 @@ class ExclusionLogicTests: XCTestCase {
 			let exclusions2 = validExclusions(groupID: secondGroupID, exclusionLists: exlcusionLists, selectedIDs: secondSelection, variantGroups: variantGroups)
 
 			XCTAssertEqual(exclusions2, ["22": Set([Exclusion(groupID: "2", variationID: "10")])])
+
+
+			let complexExclusionsList = [[(1,3), (2,10)], [(2,11), (3, 22)]].map { (array) in
+				return Set(array.map{ Exclusion(groupID: "\($0.0)", variationID: "\($0.1)") })
+			}
+			let exclusions3 = validExclusions(groupID: "3", exclusionLists: complexExclusionsList, selectedIDs: ["3", "11"], variantGroups: variantGroups)
+
+			XCTAssertEqual(exclusions3, ["22": Set([Exclusion(groupID: "2", variationID: "11")])])
+
 		} catch {
 			XCTFail()
 		}
