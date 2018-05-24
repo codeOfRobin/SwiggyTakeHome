@@ -8,8 +8,6 @@
 
 import Foundation
 
-//TODO: Remove Mock files like SampleJSON from Target before submitting
-
 protocol ModelDelegate: class {
 	func modelCoordinator(_ modelCoordinator: ModelCoordinator, didUpdate model: ([VariantGroup], [[Exclusion]]))
 }
@@ -24,9 +22,7 @@ class ModelCoordinator {
 	let apiClient: APIClient
 
 	init() {
-		//TODO: Fix this
-//		self.apiClient = apiClient
-		self.apiClient = APIClient.init(session: MockAPISession())
+		self.apiClient = APIClient.init(session: .shared)
 	}
 
 	func start() {
@@ -36,7 +32,7 @@ class ModelCoordinator {
 				self.model = (response.variants.variantGroups, response.variants.exclusions)
 			case .failure(let error):
 				print(error.localizedDescription)
-				//TODO: handle this
+				//FIXME: handle this
 			}
 		}
 	}

@@ -100,7 +100,7 @@ class AppCoordinator: NSObject, ModelDelegate, VariantListCoordinatorDelegate, U
 	}
 
 	func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-		//TODO: This still kinda feels like a hack. Must refactor
+		//TODO: This still kinda feels like a hack. Might refactor
 		if let _ = rootViewController.topViewController as? VariantListViewController {
 			self.listCoordinators = Array(listCoordinators[0..<navigationController.viewControllers.count])
 			if self.listCoordinators.count == 1 {
@@ -137,9 +137,6 @@ class VariantListCoordinator: VariantListViewControllerDelegate {
 	}
 
 	func start() {
-
-		//TODO: In README, do mention: wouldn't it be cool if the list showed you what you selected wrong? Like if you want a regular size, but you chose cheese burst by mistake initially, the UI should tell you what you did wrong
-		//TODO: This 👇
 		let disabledVariations = Set(triggeredExclusionReasons.keys)
 		listViewController.updateVariantGroup(variantGroup, andExclusions: disabledVariations)
 		if let _ = rootViewController.topViewController as? VariantListViewController {

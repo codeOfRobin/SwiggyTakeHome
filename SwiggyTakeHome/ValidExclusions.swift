@@ -9,7 +9,6 @@
 import Foundation
 
 // We're making this as general as possible
-//TODO: mention the README about wrapping Stringly typed IDs in something like: https://medium.com/compileswift/avoiding-primitive-obsession-in-swift-5325b65d521e
 func validExclusions(groupID: String, exclusionLists: [Set<Exclusion>], selectedIDs: [String], variantGroups: [VariantGroup]) -> [String: Set<Exclusion>] {
 
 	let selectedPairs = zip(selectedIDs, variantGroups).map{ Exclusion(groupID: $0.1.groupID, variationID: $0.0) }

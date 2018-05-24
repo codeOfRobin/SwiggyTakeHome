@@ -21,12 +21,12 @@ enum Constants {
 			static let dataIsNil = NSLocalizedString("Data receieved in request was nil", comment: "")
 			static let clientSideError = NSLocalizedString("Whoops, looks like something failed on our end. We'll look into it 😅", comment: "")
 			static func itemExclusionError(with option: String, items: [String]) -> String {
-				return NSLocalizedString("Sorry, you can't select the option \(option) because you previously selected the following: \(items.joined(separator: ", "))", comment: "")
+				return NSLocalizedString("Sorry, you can't select the option \"\(option)\" because you previously selected the following: \(items.map{ "\"\($0)\"" }.joined(separator: ", "))", comment: "")
 			}
 		}
 
 		static func itemSelectionSuccess(with items: [String]) -> String {
-			return NSLocalizedString("Congrats! You've chosen a dish with the following variations: \(items.joined(separator: ", "))", comment: "")
+			return NSLocalizedString("Congrats! You've chosen a dish with the following variations: \(items.map{ "\"\($0)\"" }.joined(separator: ", "))", comment: "")
 		}
 
 		enum ReuseIdentifiers {
