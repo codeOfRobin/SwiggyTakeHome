@@ -28,6 +28,8 @@
 		4246DADE20B5D800004E0F54 /* ExclusionLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246DADD20B5D800004E0F54 /* ExclusionLogicTests.swift */; };
 		4246DAE220B5E37B004E0F54 /* ValidExclusions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246DAE120B5E37B004E0F54 /* ValidExclusions.swift */; };
 		4246DAE420B5E96D004E0F54 /* UIViewController+ErrorAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246DAE320B5E96D004E0F54 /* UIViewController+ErrorAlerts.swift */; };
+		4246DAE620B6E005004E0F54 /* VariantListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246DAE520B6E005004E0F54 /* VariantListCoordinator.swift */; };
+		4246DAE820B6E021004E0F54 /* VariantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246DAE720B6E021004E0F54 /* VariantListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		4246DADD20B5D800004E0F54 /* ExclusionLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExclusionLogicTests.swift; sourceTree = "<group>"; };
 		4246DAE120B5E37B004E0F54 /* ValidExclusions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidExclusions.swift; sourceTree = "<group>"; };
 		4246DAE320B5E96D004E0F54 /* UIViewController+ErrorAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorAlerts.swift"; sourceTree = "<group>"; };
+		4246DAE520B6E005004E0F54 /* VariantListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariantListCoordinator.swift; sourceTree = "<group>"; };
+		4246DAE720B6E021004E0F54 /* VariantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariantListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,15 +111,12 @@
 			children = (
 				4246DAE120B5E37B004E0F54 /* ValidExclusions.swift */,
 				4246DAE320B5E96D004E0F54 /* UIViewController+ErrorAlerts.swift */,
-				4242F41620B335EF00199A42 /* AppCoordinator.swift */,
+				4246DAE920B6E031004E0F54 /* Coordinators */,
+				4246DAEA20B6E04B004E0F54 /* View Controllers */,
 				4242F41C20B3E91B00199A42 /* Constants.swift */,
-				4242F41820B3363900199A42 /* ModelCoordinator.swift */,
 				4242F41A20B3E83400199A42 /* APIClient.swift */,
 				4242F3E220B1E27B00199A42 /* AppDelegate.swift */,
-				4242F41220B332EC00199A42 /* UIViewController+Children.swift */,
-				4242F41020B32F7800199A42 /* ErrorViewController.swift */,
 				4242F40220B2A07900199A42 /* Variation.swift */,
-				4242F40E20B32F3D00199A42 /* LoadingViewController.swift */,
 				4242F3E920B1E27D00199A42 /* Assets.xcassets */,
 				4242F3EB20B1E27D00199A42 /* LaunchScreen.storyboard */,
 				4242F3EE20B1E27D00199A42 /* Info.plist */,
@@ -135,6 +136,27 @@
 				4242F3F920B1E27D00199A42 /* Info.plist */,
 			);
 			path = SwiggyTakeHomeTests;
+			sourceTree = "<group>";
+		};
+		4246DAE920B6E031004E0F54 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				4242F41620B335EF00199A42 /* AppCoordinator.swift */,
+				4246DAE520B6E005004E0F54 /* VariantListCoordinator.swift */,
+				4242F41820B3363900199A42 /* ModelCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		4246DAEA20B6E04B004E0F54 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4246DAE720B6E021004E0F54 /* VariantListViewController.swift */,
+				4242F41220B332EC00199A42 /* UIViewController+Children.swift */,
+				4242F41020B32F7800199A42 /* ErrorViewController.swift */,
+				4242F40E20B32F3D00199A42 /* LoadingViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,8 +259,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4246DAE820B6E021004E0F54 /* VariantListViewController.swift in Sources */,
 				4242F41320B332EC00199A42 /* UIViewController+Children.swift in Sources */,
 				4242F40320B2A07900199A42 /* Variation.swift in Sources */,
+				4246DAE620B6E005004E0F54 /* VariantListCoordinator.swift in Sources */,
 				4242F41120B32F7800199A42 /* ErrorViewController.swift in Sources */,
 				4246DAE420B5E96D004E0F54 /* UIViewController+ErrorAlerts.swift in Sources */,
 				4242F3E320B1E27B00199A42 /* AppDelegate.swift in Sources */,
