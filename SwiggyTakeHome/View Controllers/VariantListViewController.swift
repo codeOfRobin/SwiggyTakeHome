@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol VariantListViewControllerDelegate: class {
+protocol VariantListViewControllerDelegate: AnyObject {
 	func controller(_ controller: VariantListViewController,didSelectVariationAt indexPath: IndexPath)
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ModelDelegate: class {
+protocol ModelDelegate: AnyObject {
 	func modelCoordinator(_ modelCoordinator: ModelCoordinator, didUpdate model: ([VariantGroup], [[Exclusion]]))
 }
 

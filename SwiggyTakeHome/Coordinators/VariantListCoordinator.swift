@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol VariantListCoordinatorDelegate: class {
+protocol VariantListCoordinatorDelegate: AnyObject {
 	func coordinator(_ coordinator: VariantListCoordinator, didTapVariation variation: Variation)
 }
 

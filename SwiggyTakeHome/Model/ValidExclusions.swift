@@ -9,18 +9,19 @@
 import Foundation
 
 // We're making this as general as possible
+// the `Exclusion` type is the perfect representation of a user's choice 🤯
 func validExclusions(groupID: String, exclusionLists: [Set<Exclusion>], selectedIDs: [String], variantGroups: [VariantGroup]) -> [String: Set<Exclusion>] {
-
+	// Exclusion is a perfect representation of a user's choice
 	let selectedPairs = zip(selectedIDs, variantGroups).map{ Exclusion(groupID: $0.1.groupID, variationID: $0.0) }
 
-	let exclusionListsWeCareAbout = exclusionLists.filter{ !$0.intersection(selectedPairs).isEmpty }
+	let elligibleExclusionLists = exclusionLists.filter { !$0.intersection(selectedPairs).isEmpty }
 
-	let disabledElementsInVariantGroup = exclusionListsWeCareAbout.map { (set) -> ([String], Set<Exclusion>) in
+	let disabledElementsInVariantGroup = elligibleExclusionLists.map { (set) -> ([String], Set<Exclusion>) in
 		let disabledElements = set.filter {
-			$0.groupID == groupID
+				$0.groupID == groupID
 			}.map {
 				$0.variationID
-		}
+			}
 
 		let reasonsForDisabledElements =  set.filter { (exclusion) -> Bool in
 			selectedPairs.filter{ $0.groupID == exclusion.groupID }.count > 0
@@ -42,18 +43,6 @@ func validExclusions(groupID: String, exclusionLists: [Set<Exclusion>], selected
 	}
 
 	return reasonDict
-}
-
-func previousOptions(forExclusionReasons exclusionReasons: Set<Exclusion>, variantGroups: [VariantGroup]) -> [Variation] {
-	return exclusionReasons.compactMap { exclusion in
-		guard let variantGroup = variantGroups.first(where: { $0.groupID == exclusion.groupID }) else {
-			return nil
-		}
-		guard let variation = variantGroup.variations.first(where: { $0.id == exclusion.variationID }) else {
-			return nil
-		}
-		return variation
-	}
 }
 
 func itemNames(for exclusions: Set<Exclusion>, variantGroups: [VariantGroup]) -> [String] {

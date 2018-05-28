@@ -88,6 +88,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		421177E020BBBBAF00AA2335 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4242F41220B332EC00199A42 /* UIViewController+Children.swift */,
+				4246DAE320B5E96D004E0F54 /* UIViewController+ErrorAlerts.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		421177E120BBBBC900AA2335 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4242F41C20B3E91B00199A42 /* Constants.swift */,
+				4242F41A20B3E83400199A42 /* APIClient.swift */,
+				4246DAE120B5E37B004E0F54 /* ValidExclusions.swift */,
+				4242F40220B2A07900199A42 /* Variation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4242F3D620B1E27A00199A42 = {
 			isa = PBXGroup;
 			children = (
@@ -109,14 +129,11 @@
 		4242F3E120B1E27B00199A42 /* SwiggyTakeHome */ = {
 			isa = PBXGroup;
 			children = (
-				4246DAE120B5E37B004E0F54 /* ValidExclusions.swift */,
-				4246DAE320B5E96D004E0F54 /* UIViewController+ErrorAlerts.swift */,
+				421177E020BBBBAF00AA2335 /* Extensions */,
 				4246DAE920B6E031004E0F54 /* Coordinators */,
 				4246DAEA20B6E04B004E0F54 /* View Controllers */,
-				4242F41C20B3E91B00199A42 /* Constants.swift */,
-				4242F41A20B3E83400199A42 /* APIClient.swift */,
+				421177E120BBBBC900AA2335 /* Model */,
 				4242F3E220B1E27B00199A42 /* AppDelegate.swift */,
-				4242F40220B2A07900199A42 /* Variation.swift */,
 				4242F3E920B1E27D00199A42 /* Assets.xcassets */,
 				4242F3EB20B1E27D00199A42 /* LaunchScreen.storyboard */,
 				4242F3EE20B1E27D00199A42 /* Info.plist */,
@@ -152,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				4246DAE720B6E021004E0F54 /* VariantListViewController.swift */,
-				4242F41220B332EC00199A42 /* UIViewController+Children.swift */,
 				4242F41020B32F7800199A42 /* ErrorViewController.swift */,
 				4242F40E20B32F3D00199A42 /* LoadingViewController.swift */,
 			);

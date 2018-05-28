@@ -10,7 +10,7 @@ import UIKit
 
 class ErrorViewController: UIViewController {
 
-	let errorLabel = UILabel()
+	private let errorLabel = UILabel()
 	let insets = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
 
 	override func viewDidLoad() {
@@ -30,17 +30,8 @@ class ErrorViewController: UIViewController {
 		// Do any additional setup after loading the view.
 	}
 
-	func configure(text: String) {
+	func setErrorText(_ text: String) {
 		errorLabel.text = text
-	}
-
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-	}
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
 	}
 
 }

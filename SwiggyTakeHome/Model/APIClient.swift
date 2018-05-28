@@ -30,7 +30,8 @@ class APIRequestBuilder {
 		components.path = path
 
 		guard let url = components.url else {
-			fatalError("Can't generate URL")
+//			fatalError("Can't generate URL")
+			return nil
 		}
 
 		//no other setup needed, no httpBody, httpMethod is "GET" by default

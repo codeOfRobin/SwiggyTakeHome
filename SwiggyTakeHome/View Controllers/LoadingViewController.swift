@@ -24,7 +24,6 @@ class LoadingViewController: UIViewController {
 			activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
 			])
-		// Do any additional setup after loading the view.
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
@@ -33,11 +32,6 @@ class LoadingViewController: UIViewController {
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
 			self?.activityIndicator.startAnimating()
 		}
-	}
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
 	}
 
 }
